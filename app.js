@@ -49,7 +49,8 @@ function update_session(type) {
         .insert([{
           session_id: db_id,
           user_id: user_id,
-          url: url
+          url: url,
+          action: type
         }], { returning: 'minimal' })
 
         if (error) {
