@@ -10,7 +10,7 @@ let url = "https://virtual-stage.eventtia.com/fr/toys/stage/122044";
 const { createClient } = supabase;
 supabase = createClient('https://grjotsrqxlcjdhqqjmai.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY');
 let db_id = "none"
-let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21";
+let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21"; //hardcoded just to generate a new UUID.
 let interval = null;
 
 function gen_uuid() {
@@ -26,12 +26,21 @@ function gen_uuid() {
       // Write successfull
       // console.log(data);
       db_id = data[0].id;
+
+      //save to localstorage
+      localStorage.setItem("eventtia-tag", db_id);
     }
   })();
 }
 
-// immediately generate a UUID
-gen_uuid();
+// We start checking the local storage for an existing UUID
+if (localStorage.getItem("eventtia-tag") === null) {
+  // immediately generate a UUID
+  gen_uuid();
+} else {
+  // get id from storage. (this allows us to identify "unique anonymous sessions")
+  db_id = localStorage.getItem("eventtia-tag");
+}
 
 function logout_user() {
   const { error } = supabase.auth.signOut();
@@ -48,7 +57,6 @@ function update_session(type) {
         .from('sessions')
         .insert([{
           session_id: db_id,
-          user_id: user_id,
           url: url,
           action: type
         }], { returning: 'minimal' })
