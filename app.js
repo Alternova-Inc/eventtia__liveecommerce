@@ -13,26 +13,6 @@ let db_id = "none"
 let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21";
 let interval = null;
 
-// immediately sign in
-// (async function () {
-//   const { user, session, error } = await supabase.auth.signIn({
-//     email: 'info@alternova.co',
-//     password: 'iia71hZ0bOODTHfxaara1RzW',
-//   });
-
-//   if (error) {
-//     console.log("Sign in error");
-//     console.log(error);
-//   } else {
-//     // console.log(user);
-//     user_id = user.id;
-
-//     // immediately generate a UUID
-//     gen_uuid();
-//   }
-// })();
-
-
 function gen_uuid() {
   (async function () {
     const { data, error } = await supabase
@@ -52,27 +32,6 @@ function gen_uuid() {
 
 // immediately generate a UUID
 gen_uuid();
-
-// Function to generate friendly timestamps
-// function get_timestamp(timestamp) {
-//   now = new Date(timestamp)
-
-//   // Create an array with the current month, day and time
-//   var date = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
-
-//   // Create an array with the current hour, minute and second
-//   var time = [now.getHours(), now.getMinutes(), now.getSeconds()];
-
-//   // If seconds and minutes are less than 10, add a zero
-//   for (var i = 1; i < 3; i++) {
-//     if (time[i] < 10) {
-//       time[i] = "0" + time[i];
-//     }
-//   }
-
-//   // Return the formatted string
-//   return date.join("-") + " " + time.join(":");
-// }
 
 function logout_user() {
   const { error } = supabase.auth.signOut();
@@ -117,18 +76,6 @@ function update_session(type) {
     })()
   }
 }
-
-// function read_data() {
-//   // Read data code, this should be denied.
-//   console.log("read data");
-//   (async function () {
-//     const { data, error } = await supabase
-//       .from('sessions')
-//       .select()
-//       console.log(data);
-//       console.log(error);
-//   })();
-// }
 
 div.innerHTML =
   '<div class="modal-embed">\n' +
