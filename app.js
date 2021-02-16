@@ -10,28 +10,27 @@ let url = "https://virtual-stage.eventtia.com/fr/toys/stage/122044";
 const { createClient } = supabase;
 supabase = createClient('https://grjotsrqxlcjdhqqjmai.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY');
 let db_id = "none"
-let start_time = 0;
-let user_id = "";
+let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21";
 let interval = null;
 
 // immediately sign in
-(async function () {
-  const { user, session, error } = await supabase.auth.signIn({
-    email: 'info@alternova.co',
-    password: 'iia71hZ0bOODTHfxaara1RzW',
-  });
+// (async function () {
+//   const { user, session, error } = await supabase.auth.signIn({
+//     email: 'info@alternova.co',
+//     password: 'iia71hZ0bOODTHfxaara1RzW',
+//   });
 
-  if (error) {
-    console.log("Sign in error");
-    console.log(error);
-  } else {
-    // console.log(user);
-    user_id = user.id;
+//   if (error) {
+//     console.log("Sign in error");
+//     console.log(error);
+//   } else {
+//     // console.log(user);
+//     user_id = user.id;
 
-    // immediately generate a UUID
-    gen_uuid();
-  }
-})();
+//     // immediately generate a UUID
+//     gen_uuid();
+//   }
+// })();
 
 
 function gen_uuid() {
@@ -50,6 +49,9 @@ function gen_uuid() {
     }
   })();
 }
+
+// immediately generate a UUID
+gen_uuid();
 
 // Function to generate friendly timestamps
 // function get_timestamp(timestamp) {
