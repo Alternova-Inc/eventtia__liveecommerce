@@ -1,10 +1,10 @@
 let div = document.createElement("div");
 let params = document.getElementById("eventtia-library").src;
+let url= '';
 if (params.indexOf('url') !== -1) {
   let count = params.indexOf('url');
-  let url = params.slice(count + 4);
+  url = params.slice(count + 4);
 }
-
 //connect to supabase and define globals
 const { createClient } = supabase;
 supabase = createClient('https://grjotsrqxlcjdhqqjmai.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY');
