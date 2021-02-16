@@ -13,23 +13,24 @@ let db_id = "none"
 let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21"; //hardcoded just to generate a new UUID.
 let interval = null;
 
+//Generate unique UUID gor this user
 function gen_uuid() {
   (async function () {
     const { data, error } = await supabase
       .from('id_gen')
       .insert([{user_id: user_id}])
-    if (error) {
-      console.log("Error creating UUID:");
-      console.log(error)
-      // read_data();  
-    } else {
-      // Write successfull
-      // console.log(data);
-      db_id = data[0].id;
+      if (error) {
+        console.log("Error creating UUID:");
+        console.log(error)
+        // read_data();  
+      } else {
+        // Write successfull
+        // console.log(data);
+        db_id = data[0].id;
 
-      //save to localstorage
-      localStorage.setItem("eventtia-tag", db_id);
-    }
+        //save to localstorage
+        localStorage.setItem("eventtia-tag", db_id);
+      }
   })();
 }
 
@@ -42,14 +43,7 @@ if (localStorage.getItem("eventtia-tag") === null) {
   db_id = localStorage.getItem("eventtia-tag");
 }
 
-function logout_user() {
-  const { error } = supabase.auth.signOut();
-  if (error) {
-    console.log("Logout failed: 2");
-    console.log(error);
-  }
-}
-
+// main analytics function
 function update_session(type) {
   if (db_id != "none") {
     (async function () {
@@ -64,17 +58,10 @@ function update_session(type) {
         if (error) {
           console.log("Error saving in Supabase:");
           console.log(error);
-
-          // log out
-          logout_user(); 
-
         } else {
           if (type == 'close'){
             // stop updating session
             clearInterval(interval);
-            
-            // log out
-            logout_user(); 
           }
     
           if (type == 'open') {
