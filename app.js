@@ -1,10 +1,9 @@
 let div = document.createElement("div");
-// let params = document.getElementById("eventtia-library").src;
-// if (params.indexOf('url') !== -1) {
-//   let count = params.indexOf('url');
-//   let url = params.slice(count + 4);
-// }
-let url = "https://virtual-stage.eventtia.com/fr/toys/stage/122044";
+let params = document.getElementById("eventtia-library").src;
+if (params.indexOf('url') !== -1) {
+  let count = params.indexOf('url');
+  let url = params.slice(count + 4);
+}
 
 //connect to supabase and define globals
 const { createClient } = supabase;
