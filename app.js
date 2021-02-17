@@ -1,10 +1,13 @@
 let div = document.createElement("div");
 let params = document.getElementById("eventtia-library").src;
+
+//set modal url from src
 let url= '';
 if (params.indexOf('url') !== -1) {
   let count = params.indexOf('url');
   url = params.slice(count + 4);
 }
+
 //connect to supabase and define globals
 const { createClient } = supabase;
 supabase = createClient('https://grjotsrqxlcjdhqqjmai.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY');
@@ -112,3 +115,21 @@ for (let i = 0; i < span.length; i++) {
 modal.setAttribute("style", "display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); overflow: hidden");
 modalContent.setAttribute("style", "background-color: #fefefe; margin: auto; padding: 0px; border: 1px solid #888;");
 embed.setAttribute("style", "height: calc(100vh - 55px);");
+
+//set image url from src
+let imageUrl= '';
+if (params.indexOf('img') !== -1) {
+  count = params.indexOf('img');
+  imageUrl = params.slice(count + 4,  params.indexOf('type') - 1);
+}
+
+//set widget type from src
+let widgetType= '';
+if (params.indexOf('type') !== -1) {
+  count = params.indexOf('type');
+  widgetType = params.slice(count + 5);
+}
+
+console.log("modalUrl", url);
+console.log("imageUrl",imageUrl);
+console.log("widgetType",widgetType);
