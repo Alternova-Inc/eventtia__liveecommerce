@@ -18,7 +18,7 @@ for (let i = 0; i < params_array.length; i++) {
 // read data from url
 let url = elements_array[1][1];
 let imageUrl = elements_array[2][1];
-let widgetType = elements_array[3][1];
+let widgetType = elements_array[3][1].toLowerCase();
 let event_utc_date = elements_array[4][1];
 let event_utc_time = elements_array[5][1];
 let event_duration_hours = elements_array[6][1];
@@ -43,28 +43,52 @@ event_time_user_adjusted.setHours(event_time_user_adjusted.getHours() + time_off
 event_time_finished.setHours(event_time_finished.getHours() + (time_offset + parseInt(event_duration_hours)));
 
 // Create human readable date in french
-//event_utc_js_datetime.setHours(event_utc_js_datetime.getHours() - time_offset);
-//event_utc_js_datetime.setHours(event_utc_js_datetime.getHours() - event_duration_hours);
+let year = event_utc_js_datetime.getFullYear();
+let month = event_utc_js_datetime.getMonth();
+let day = event_utc_js_datetime.getDate();
+let hours = event_utc_js_datetime.getHours();
+let minutes = event_utc_js_datetime.getMinutes();
+let week_day = event_utc_js_datetime.getDay();
+
+let readable_date = "" + french_week_days[week_day] + " " + day + " " + french_months[month];
+readable_date += " " + year +  ", " + hours + ":" + minutes;
 
 // Find if event Scheduled, Live, Rediffusion
 let event_status = "Commencera bientôt";
+let status_class = "scheduled-status";
 function check_event_status() {
   // console.log("Check event status called");
+
+  if (event_status == "Commencera bientôt") {
+
+  } else if (event_status == "Commencera bientôt") {
+
+  } else if (event_status == "Commencera bientôt") {
+
+  } else {
+    console.log("Status not supported.");
+  }
+
+
   current_time = new Date();
   if (current_time < event_time_user_adjusted) {
     // event is Shceduled
     event_status = "Commencera bientôt";
+    status_class_add = "scheduled-status";
   } else if (current_time > event_time_finished) {
     // event is over
     event_status = "Rediffusion";
+    status_class = "replay-status";
   } else {
     //event is live
-    event_status = "Live";  
+    event_status = "Live";
+    status_class = "live-status";
   }
 
   if (widgetType == "compact") {
     // console.log("Update compact card", event_status);
     document.getElementsByClassName("eventtia-card-compact_badge")[0].innerHTML = "" + event_status + "\n";
+    document.getElementsByClassName("eventtia-card-compact_badge")[0].classList.add("mystyle");
   } else if (widgetType == "expand") {
     // console.log("Update expand card", event_status);
     document.getElementsByClassName("eventtia-card-expand_badge")[0].innerHTML = "" + event_status + "\n";
@@ -152,7 +176,7 @@ if (widgetType == 'expand') {
                     event_status + '\n' +
                 '</p>\n' +
                 '<h5 class="eventtia-card-expand_date">\n' +
-                    event_time_user_adjusted + '\n' +
+                    readable_date + '\n' +
                 '</h5>\n' +
                 '<h2 class="eventtia-card-expand_title">\n' +
                     card_title + '\n' +
