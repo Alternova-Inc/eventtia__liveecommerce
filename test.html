@@ -10,8 +10,31 @@
       }
     </style>
     <link rel="stylesheet" href="style-widgets.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    </head>
+  <body>
+    <p>Eventtia test app</p>
+
+    <!-- Eventtia button expand -->    
+    <!-- <div class="eventtia-card-content">
+      <h1 class="eventtia-title">Et harum quidem rerum est et expedita distinctio</h1>
+      <p class="eventtia-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt.</p>
+      <button class="eventtia-btn">New event large name in a expand card for access on modal</button>
+    </div> -->
     
+    <!-- Eventtia button compact -->   
+    <div class="eventtia-card-content">
+        <button class="eventtia-btn">New event large name in a compact card for access on modal</button>
+    </div>   
+    
+    <!-- Eventtia only button -->
+    <!-- <button class="eventtia-btn">Open Event</button> -->
+
+    <!-- Always include supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- Uncomment to test locally -->
+    <script src="./app.js?url=https://virtual-stage.eventtia.com/fr/toys/stage/122044?img=https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png?type=compact?event_utc_date=2021-02-18?event_utc_time=22-43?event_duration_hours=4" id="eventtia-library"></script>
+  
     <!-- Uncomment to test library implementation -->
     <!-- <script>
         (function(doc, tag, script, src, id, url, img, type, date, time, hours, res) {
@@ -34,26 +57,5 @@
           "4"
         );
       </script> -->
-
-      <!-- Uncomment to test locally -->
-      <script src="./app.js?url=https://virtual-stage.eventtia.com/fr/toys/stage/122044?img=https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png?type=compact?event_utc_date=2021-02-18?event_utc_time=22-43?event_duration_hours=4" id="eventtia-library"></script>
-    </head>
-  <body>
-    <p>Eventtia test app</p>
-
-    <!-- Eventtia button expand -->    
-    <!-- <div class="eventtia-card-content">
-      <h1 class="eventtia-title">Et harum quidem rerum est et expedita distinctio</h1>
-      <p class="eventtia-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt.</p>
-      <button class="eventtia-btn">New event large name in a expand card for access on modal</button>
-    </div> -->
-    
-    <!-- Eventtia button compact -->   
-    <!-- <div class="eventtia-card-content">
-        <button class="eventtia-btn">New event large name in a compact card for access on modal</button>
-    </div>    -->
-    
-    <!-- Eventtia only button -->
-    <!-- <button class="eventtia-btn">Another Event Large Name</button> -->
   </body>
 </html>

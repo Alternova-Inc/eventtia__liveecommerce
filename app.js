@@ -10,7 +10,6 @@ scriptStyle = document.getElementById("eventtia-library").setAttribute('style', 
 //Split by ? and then split by ?
 let params_array = params.split("?");
 const elements_array = [];
-
 for (let i = 0; i < params_array.length; i++) {
     elements_array.push(params_array[i].split("="));
 }
@@ -57,8 +56,8 @@ readable_date += " " + year +  ", " + hours + ":" + minutes;
 let event_status = "Commencera bientôt";
 let status_class_add = "scheduled-status";
 let status_class_remove = "scheduled-status";
+
 function check_event_status() {
-  // console.log("Check event status called");
   // Check current status
   if (event_status == "Commencera bientôt") {
     status_class_remove = "scheduled-status";
@@ -111,27 +110,9 @@ function check_event_status() {
   } else {
     console.log("Unsupported widget type.");
   }
-  // console.log("bye");
 }
 
-// Log all variables for testing.
-// console.log("modalUrl", url);
-// console.log("imageUrl", imageUrl);
-// console.log("widgetType", widgetType);
-// console.log("event_utc_date", event_utc_date);
-// console.log("event_utc_time", event_utc_time);
-// console.log("event_duration_hours", event_duration_hours);
-// console.log("current_time", current_time);
-// console.log("time_offset", time_offset);
-// console.log("-----------------------------");
-// console.log("event_utc_js_datetime", event_utc_js_datetime);
-// console.log("event_time_user_adjusted", event_time_user_adjusted);
-// console.log("event_time_finished", event_time_finished);
-// console.log("event_status", event_status);
-
-//use button when button type
-
-
+//When button type, nothing happens
 //Add a card when is a compact type
 if (widgetType == 'compact') {
   let card = document.getElementsByClassName("eventtia-card-content")[0];
@@ -139,10 +120,6 @@ if (widgetType == 'compact') {
   //get button text
   let button = document.getElementsByClassName("eventtia-btn")[0];
   let btn_text = button.textContent;
-
-  //delete button element
-  let node = button.parentNode;
-  node.removeChild(button);
   
   // create div card compact
   card.setAttribute('style', 'display: inline;');
@@ -212,11 +189,14 @@ if (widgetType == 'expand') {
     '</ul>\n';
 }
 
-// Run Check
-check_event_status();
 
-// Check event status every minute
-let status_interval = setInterval(function(){ check_event_status(); }, 60000);
+if (widgetType != "button") {
+  // Run Check
+  check_event_status();
+  
+  // Check event status every minute
+  let status_interval = setInterval(function(){ check_event_status(); }, 60000);
+}
 
 //connect to supabase and define globals
 const { createClient } = supabase;
