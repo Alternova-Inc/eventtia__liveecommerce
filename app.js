@@ -167,32 +167,34 @@ if (widgetType == 'expand') {
 
   // create div card expand
   card.innerHTML =
-      '<div class="eventtia-cards-expand">\n' +
-        '<div class="eventtia-card-expand_image">\n' +
-            '<img class="eventtia-card-expand_img" src="' + imageUrl + '">\n' +
-        '</div>\n' +
-        '<div class="eventtia-card-expand_content">\n' + 
-          '<div class="eventtia-card-badge-container">\n' +
-            '<p class="eventtia-card-expand_badge">\n' +
-                event_status + '\n' +
-            '</p>\n' +
+      '<ul class="eventtia-cards-expand">\n' +
+        '<li class="eventtia-cards-expand_item">\n' +
+          '<div class="eventtia-card-expand">\n' +
+            '<div class="eventtia-card-expand_image">\n' +
+                '<img class="eventtia-card-expand_img" src="' + imageUrl + '">\n' +
+            '</div>\n' +
+            '<div class="eventtia-card-expand_content">\n' +
+                '<p class="eventtia-card-expand_badge">\n' +
+                    event_status + '\n' +
+                '</p>\n' +
+                '<h5 class="eventtia-card-expand_date">\n' +
+                    readable_date + '\n' +
+                '</h5>\n' +
+                '<h2 class="eventtia-card-expand_title">\n' +
+                    card_title + '\n' +
+                '</h2>\n' +
+                '<p class="eventtia-card-expand_text">\n' +
+                    card_description + '\n' +
+                '</p>\n' +
+                '<div class="eventtia-card-expand_button">\n' +
+                    '<button class="eventtia-card-expand_btn eventtia-btn">\n' +
+                        btn_text +'\n' +
+                    '</button>\n' +
+                '</div>\n' +
+            '</div>\n' +
           '</div>\n' +
-          '<h5 class="eventtia-card-expand_date">\n' +
-              readable_date + '\n' +
-          '</h5>\n' +
-          '<h2 class="eventtia-card-expand_title">\n' +
-              card_title + '\n' +
-          '</h2>\n' +
-          '<p class="eventtia-card-expand_text">\n' +
-              card_description + '\n' +
-          '</p>\n' +
-          '<div class="eventtia-card-expand_button">\n' +
-              '<button class="eventtia-card-expand_btn eventtia-btn">\n' +
-                  btn_text +'\n' +
-              '</button>\n' +
-          '</div>\n' +
-        '</div>\n' +
-    '</div>\n';
+        '</li>\n' +
+    '</ul>\n';
 }
 
 
