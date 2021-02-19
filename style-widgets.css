@@ -1,3 +1,17 @@
+/* General Usage */
+.live-status {
+  background: #ED3B4B;
+}
+
+.scheduled-status {
+  background: #2DD2D0;
+  color: rgb(54, 54, 54);
+}
+
+.replay-status {
+  background: #8A1778;
+}
+
 /* styles for expand card */
 .eventtia-card-expand_image {
     max-height: 250px;
@@ -26,7 +40,6 @@
   display: inline-block;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #6F2786;
 }
 
 .eventtia-card-expand_btn:hover {
@@ -42,7 +55,6 @@
   border-radius: 8px;
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #6F2786;
 }
 
 .eventtia-card-expand_badge::before {
@@ -119,7 +131,6 @@
   display: inline-block;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #6F2786;
 }
 
 .eventtia-card-compact_button {
@@ -138,25 +149,10 @@
   display: inline-block;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #6F2786;
 }
 
 .eventtia-card-compact_btn:hover {
   background-color:#adadad;
-}
-
-.live-status {
-  background: #ED3B4B !important;
-  /* color: rgb(54, 54, 54) !important; */
-}
-
-.scheduled-status {
-  background: #2DD2D0 !important;
-  color: rgb(54, 54, 54) !important;
-}
-
-.replay-status {
-  background: #8A1778 !important;
 }
 
 .eventtia-card-compact_badge::before {
