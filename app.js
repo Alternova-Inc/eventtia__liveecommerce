@@ -177,11 +177,6 @@ if (widgetType == 'expand') {
   let card_description = document.getElementsByClassName("eventtia-description")[0].textContent;
   let btn_text = document.getElementsByClassName("eventtia-btn")[0].textContent;
 
-  //delete button element
-  while (card.firstChild) {
-    card.removeChild(card.firstChild);
-  }
-
   // create div card expand
   card.innerHTML =
       '<ul class="eventtia-cards-expand">\n' +
