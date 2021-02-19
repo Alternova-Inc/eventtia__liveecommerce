@@ -61,7 +61,6 @@
 }
 
 .eventtia-cards-expand {
-  max-height: 250px;
   display: block;
   flex-wrap: wrap;
   list-style: none;
