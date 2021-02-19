@@ -129,11 +129,13 @@ function check_event_status() {
 // console.log("event_time_finished", event_time_finished);
 // console.log("event_status", event_status);
 
-let card = document.getElementsByClassName("eventtia-card-content")[0];
+//use button when button type
+
 
 //Add a card when is a compact type
 if (widgetType == 'compact') {
-  
+  let card = document.getElementsByClassName("eventtia-card-content")[0];
+
   //get button text
   let button = document.getElementsByClassName("eventtia-btn")[0];
   let btn_text = button.textContent;
@@ -171,6 +173,7 @@ if (widgetType == 'compact') {
 
 //Add a card when is a expand type
 if (widgetType == 'expand') {
+  let card = document.getElementsByClassName("eventtia-card-content")[0];
   
   //get content for card expand
   let card_title = document.getElementsByClassName("eventtia-title")[0].textContent;
