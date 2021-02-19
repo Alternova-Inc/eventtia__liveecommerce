@@ -55,20 +55,20 @@ readable_date += " " + year +  ", " + hours + ":" + minutes;
 
 // Find if event Scheduled, Live, Rediffusion
 let event_status = "Commencera bientôt";
-let status_class = "scheduled-status";
+let status_class_add = "scheduled-status";
+let status_class_remove = "scheduled-status";
 function check_event_status() {
   // console.log("Check event status called");
-
+  // Check current status
   if (event_status == "Commencera bientôt") {
-
-  } else if (event_status == "Commencera bientôt") {
-
-  } else if (event_status == "Commencera bientôt") {
-
+    status_class_remove = "scheduled-status";
+  } else if (event_status == "Rediffusion") {
+    status_class_remove = "replay-status";
+  } else if (event_status == "Live") {
+    status_class_remove = "live-status";
   } else {
     console.log("Status not supported.");
   }
-
 
   current_time = new Date();
   if (current_time < event_time_user_adjusted) {
@@ -78,20 +78,36 @@ function check_event_status() {
   } else if (current_time > event_time_finished) {
     // event is over
     event_status = "Rediffusion";
-    status_class = "replay-status";
+    status_class_add = "replay-status";
   } else {
     //event is live
     event_status = "Live";
-    status_class = "live-status";
+    status_class_add = "live-status";
   }
 
   if (widgetType == "compact") {
     // console.log("Update compact card", event_status);
     document.getElementsByClassName("eventtia-card-compact_badge")[0].innerHTML = "" + event_status + "\n";
-    document.getElementsByClassName("eventtia-card-compact_badge")[0].classList.add("mystyle");
+
+    // update badge color
+    document.getElementsByClassName("eventtia-card-compact_badge")[0].classList.remove(status_class_remove);
+    document.getElementsByClassName("eventtia-card-compact_badge")[0].classList.add(status_class_add);
+
+    // update button color
+    document.getElementsByClassName("eventtia-card-compact_btn")[0].classList.remove(status_class_remove);
+    document.getElementsByClassName("eventtia-card-compact_btn")[0].classList.add(status_class_add);
+
   } else if (widgetType == "expand") {
     // console.log("Update expand card", event_status);
     document.getElementsByClassName("eventtia-card-expand_badge")[0].innerHTML = "" + event_status + "\n";
+
+    // update badge color
+    document.getElementsByClassName("eventtia-card-expand_badge")[0].classList.remove(status_class_remove);
+    document.getElementsByClassName("eventtia-card-expand_badge")[0].classList.add(status_class_add);
+
+    // update button color
+    document.getElementsByClassName("eventtia-card-expand_btn")[0].classList.remove(status_class_remove);
+    document.getElementsByClassName("eventtia-card-expand_btn")[0].classList.add(status_class_add);
   } else {
     console.log("Unsupported widget type.");
   }
@@ -113,6 +129,8 @@ function check_event_status() {
 // console.log("event_time_finished", event_time_finished);
 // console.log("event_status", event_status);
 
+let card = document.getElementsByClassName("eventtia-card-content")[0];
+
 //Add a card when is a compact type
 if (widgetType == 'compact') {
   
@@ -123,9 +141,8 @@ if (widgetType == 'compact') {
   //delete button element
   let node = button.parentNode;
   node.removeChild(button);
-
+  
   // create div card compact
-  let card = document.createElement("div");
   card.setAttribute('style', 'display: inline;');
   card.innerHTML =
     '<ul class="eventtia-cards-compact">\n' +
@@ -141,6 +158,11 @@ if (widgetType == 'compact') {
                   '<h2 class="eventtia-card-compact_title">\n' +
                     btn_text +'\n' +
                   '</h2>\n' +
+                  '<div class="eventtia-card-compact_button">\n' +
+                      '<button class="eventtia-card-compact_btn eventtia-btn">\n' +
+                          'Cliquer ici \n' +
+                      '</button>\n' +
+                  '</div>\n' +
               '</div>\n' +
             '</div>\n' +
           '</li>\n' +
@@ -148,7 +170,7 @@ if (widgetType == 'compact') {
   document.body.appendChild(card);
 }
 
-//Add a card when is a compact type
+//Add a card when is a expand type
 if (widgetType == 'expand') {
   
   //get content for card expand
@@ -157,13 +179,11 @@ if (widgetType == 'expand') {
   let btn_text = document.getElementsByClassName("eventtia-btn")[0].textContent;
 
   //delete button element
-  let card_content = document.getElementsByClassName("eventtia-card-expand-content")[0];
-  while (card_content.firstChild) {
-    card_content.removeChild(card_content.firstChild);
+  while (card.firstChild) {
+    card.removeChild(card.firstChild);
   }
 
-  // create div card expnand
-  let card = document.createElement("div");
+  // create div card expand
   card.innerHTML =
       '<ul class="eventtia-cards-expand">\n' +
         '<li class="eventtia-cards-expand_item">\n' +
@@ -312,11 +332,3 @@ for (let i = 0; i < span.length; i++) {
 modal.setAttribute("style", "display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); overflow: hidden");
 modalContent.setAttribute("style", "background-color: #fefefe; margin: auto; padding: 0px; border: 1px solid #888;");
 embed.setAttribute("style", "height: calc(100vh - 55px);");
-
-var stylesheet = document.createElement("link");
-
-stylesheet.type = "text/css";
-stylesheet.rel = "stylesheet";
-stylesheet.href = "style-widgets.css";
-
-document.body.appendChild(stylesheet);
