@@ -33,7 +33,7 @@
   color: #ffffff;
   margin: 0 auto;
   padding: 0.8rem 1.5rem;
-  font-size: 14px;
+  font-size: 1rem;
   border-radius: 25px;
   font-weight: 700;
   display: inline-block;
@@ -49,7 +49,7 @@
   color: #ffffff;
   margin: 0 0 10px 0;
   padding: 0.2rem 0.8em;
-  font-size: 10px;
+  font-size: 0.7rem;
   text-transform: uppercase;
   border-radius: 8px;
   display: inline-block;
@@ -128,20 +128,19 @@
 }
 
 .eventtia-card-compact_img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
 }
 
 .eventtia-card-compact_badge {
   color: #ffffff;
   margin: 0 0 10px 0;
   padding: 0.2rem 0.8em;
-  font-size: 10px;
+  font-size: 0.7rem;
   text-transform: uppercase;
   border-radius: 8px;
   display: inline-block;
-  cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -155,7 +154,7 @@
   color: #ffffff;
   margin-top: 10px;
   padding: 0.5rem 1.5rem;
-  font-size: 12px;
+  font-size: 1rem;
   border-radius: 25px;
   font-weight: 700;
   display: inline-block;
@@ -183,9 +182,16 @@
   display: inline-flex;
   padding: 1rem;
   cursor: pointer;
+  width: 250px;
 }
 
-@media (min-width: 40rem) {
+@media (max-width: 380px) {
+  .eventtia-cards-compact_item {
+    width: auto !important;
+  }
+}
+
+/* @media (min-width: 40rem) {
   .eventtia-cards-compact_item {
     width: 50%;
   }
@@ -195,7 +201,7 @@
   .eventtia-cards-compact_item {
     width: 33.3333%;
   }
-}
+} */
 
 .eventtia-card-compact {
   background-color: #ffffff;
