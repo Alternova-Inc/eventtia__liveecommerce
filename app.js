@@ -21,6 +21,13 @@ let widgetType = elements_array[3][1].toLowerCase();
 let event_utc_date = elements_array[4][1];
 let event_utc_time = elements_array[5][1];
 let event_duration_hours = elements_array[6][1];
+let env = null;
+
+if (elements_array[elements_array.length - 1][0] === 'env') {
+  env = "dev";
+} else {
+  env = 'prod';
+}
 
 // split the date and time so we can create a new date using JS
 let event_utc_date_array = event_utc_date.split("-");
@@ -198,7 +205,17 @@ if (widgetType != "button") {
 
 //connect to supabase and define globals
 const { createClient } = supabase;
-supabase = createClient('https://grjotsrqxlcjdhqqjmai.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY');
+let host = null;
+let key = null;
+if (env === 'prod') {
+  host = 'https://fmsesqjkbadnliholapv.supabase.co/';
+  key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzc1NDgxNCwiZXhwIjoxOTI5MzMwODE0fQ.7Qi89BzXqzlBlAQWbLQ0CKJi70s0zPMjKeFUrdMgJFc';
+} else {
+  host = 'https://grjotsrqxlcjdhqqjmai.supabase.co';
+  key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzQyMDc0MiwiZXhwIjoxOTI4OTk2NzQyfQ.CtO-mvBItlH_chUShrE_CgDjoQ9llWiUa7WNsdCNsXY';
+}
+
+supabase = createClient(host, key);
 let db_id = "none"
 let user_id = "8baf6150-aee1-43eb-8bdb-451c723dbf21"; //hardcoded just to generate a new UUID.
 let interval = null;

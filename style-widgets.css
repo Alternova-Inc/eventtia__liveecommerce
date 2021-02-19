@@ -14,13 +14,13 @@
 
 /* styles for expand card */
 .eventtia-card-expand_image {
-    height: 250px;
-    flex-grow: 1;
+    flex: 1;
 }
 
 .eventtia-card-expand_img {
-  height: 250px;
-  vertical-align: middle;  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
 }
 
 .eventtia-card-expand_button {
@@ -32,8 +32,8 @@
 .eventtia-card-expand_btn {
   color: #ffffff;
   margin: 0 auto;
-  padding: 0.6rem 1.5rem;
-  font-size: 14px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   border-radius: 25px;
   font-weight: 700;
   display: inline-block;
@@ -47,9 +47,9 @@
 
 .eventtia-card-expand_badge {
   color: #ffffff;
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   padding: 0.2rem 0.8em;
-  font-size: 10px;
+  font-size: 0.7rem;
   text-transform: uppercase;
   border-radius: 8px;
   display: inline-block;
@@ -61,21 +61,43 @@
 }
 
 .eventtia-cards-expand {
-  max-height: 250px;
+  display: block;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.eventtia-cards-expand_item {
+  padding: 1rem;
+}
+
+
+@media (max-width: 620px) {
+  .eventtia-card-expand {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .eventtia-card-expand {
+    max-height: 300px;
+  }
+}
+
+
+.eventtia-card-expand {
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-content: space-around;
+  overflow: hidden;
 }
 
 .eventtia-card-expand_content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 15px;
+  flex: 1;
+  padding: 2rem;
   background: #ffffff;
-  height: 250px;
 }
 
 .eventtia-card-expand_date {
@@ -106,20 +128,19 @@
 }
 
 .eventtia-card-compact_img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
 }
 
 .eventtia-card-compact_badge {
   color: #ffffff;
   margin: 0 0 10px 0;
   padding: 0.2rem 0.8em;
-  font-size: 10px;
+  font-size: 0.7rem;
   text-transform: uppercase;
   border-radius: 8px;
   display: inline-block;
-  cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -133,7 +154,7 @@
   color: #ffffff;
   margin-top: 10px;
   padding: 0.5rem 1.5rem;
-  font-size: 12px;
+  font-size: 1rem;
   border-radius: 25px;
   font-weight: 700;
   display: inline-block;
@@ -161,7 +182,26 @@
   display: inline-flex;
   padding: 1rem;
   cursor: pointer;
+  width: 250px;
 }
+
+@media (max-width: 380px) {
+  .eventtia-cards-compact_item {
+    width: auto !important;
+  }
+}
+
+/* @media (min-width: 40rem) {
+  .eventtia-cards-compact_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .eventtia-cards-compact_item {
+    width: 33.3333%;
+  }
+} */
 
 .eventtia-card-compact {
   background-color: #ffffff;
@@ -191,53 +231,3 @@
   margin-bottom: 1.25rem;    
   font-weight: 400;
 }
-
-@media (max-width: 480px) {
-  .eventtia-cards-expand {
-    max-height: 600px;
-    flex-direction: column;
-  }
-
-  .eventtia-card-expand_image {
-    display: flex;
-    max-height: 300px;
-  }
-
-  .eventtia-card-expand_img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-@media (min-width: 481px) {
-  .eventtia-cards-expand {
-    max-height: 600px;
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 479px) {
-
-}
-
-@media (min-width: 1025px) {
-
-}
-
-@media (min-width: 1201px) {
-
-}
-
-
-/* @media (max-width: 40rem) {
-  .eventtia-cards-compact_item {
-    width: 50%;
-  }
-}
-
-@media (min-width: 56rem) {
-  .eventtia-cards-compact_item {
-    width: 33.3333%;
-  }
-} */
