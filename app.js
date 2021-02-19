@@ -167,7 +167,6 @@ if (widgetType == 'compact') {
             '</div>\n' +
           '</li>\n' +
       '</ul>\n';
-  document.body.appendChild(card);
 }
 
 //Add a card when is a expand type
@@ -213,7 +212,6 @@ if (widgetType == 'expand') {
           '</div>\n' +
         '</li>\n' +
     '</ul>\n';
-  document.body.appendChild(card);
 }
 
 // Run Check
