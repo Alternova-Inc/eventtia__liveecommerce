@@ -2,10 +2,61 @@
 <html>
 <body>
     <p>Eventtia test app</p>
-    <a class="eventtia-btn">Ábrete sésamo</a>
-    <!-- <button class="signup-btn">Sign up</button> -->
+
+    <!-- Eventtia button expand -->    
+    <!-- <div class="eventtia-card-content">
+        <h1 class="eventtia-title">Et harum quidem rerum est et expedita distinctio</h1>
+        <p class="eventtia-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt.</p>
+        <button class="eventtia-btn">New event large name in a expand card for access on modal</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="./app.js?url=https://virtual-stage.eventtia.com/fr/toys/stage/122044?img=https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png?type=compact" id="eventtia-library"></script>
-    <!-- <script src="./sign-up.js"></script> -->
+    <script src="./app.js?url=https://virtual-stage.eventtia.com/fr/toys/stage/122044?img=https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png?type=expand?event_utc_date=2021-02-18?event_utc_time=22-43?event_duration_hours=4" id="eventtia-library"></script> -->
+
+    <!-- Eventtia button compact --> 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <div class="eventtia-card-content">
+        <button class="eventtia-btn">New event large name in a compact card for access on modal</button>
+    </div>   
+    <script src="./app.js?url=https://virtual-stage.eventtia.com/fr/toys/stage/122044?img=https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png?type=compact?event_utc_date=2021-02-18?event_utc_time=22-43?event_duration_hours=4" id="eventtia-library"></script>
+    
+    <button class="eventtia-btn">Another Event Large Name</button>
+
+    <link rel="stylesheet" href="style-widgets.css">
+    <!-- <div class="eventtia-card-expand-content">
+        <h1 class="eventtia-title">Et harum quidem rerum est et expedita distinctio</h1>
+        <p class="eventtia-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt.</p>
+        <button class="eventtia-btn">New event large name in a expand card for access on modal</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+        (function(doc, tag, script, src, id, url, img, type, date, time, hours, res) {
+          (res = doc.createElement(script)); 
+          res.src  = src + '?url=' + url + '?img=' + img  + '?type=' + type + '?event_utc_date=' + date + '?event_utc_time=' + time + '?event_duration_hours=' + hours; 
+          res.async = 1;
+          res.id = id
+          doc.getElementsByTagName(tag).item(0).appendChild(res);
+        })(
+          document,
+          "body",  
+          "script", 
+          "https://cdn.jsdelivr.net/gh/Alternova-Inc/eventtia__liveecommerce@0.1.0/app.js",
+          "eventtia-library",
+          "https://virtual-stage.eventtia.com/fr/toys/stage/122044",
+          "https://eventtia-bucket.s3-us-west-1.amazonaws.com/Test-Logo-Circle-black-transparent.png",
+          "expand",
+          "2021-02-18",
+          "22-43",
+          "4"
+        );
+      </script> -->
+
+    <style>
+    /* Font */
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+    body {
+    font-family: 'Quicksand', serif;
+    }
+    </style>
 </body>
 </html>
