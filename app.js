@@ -7,7 +7,7 @@ const french_week_days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Sa
 //set 'inline' attribute to a script tag (I'm not sure of that, is a test)
 scriptStyle = document.getElementById("eventtia-library").setAttribute('style', 'display: inline;');
 
-//Split by ? and then split by ?
+//Split by ? and then split by =
 let params_array = params.split("?");
 const elements_array = [];
 for (let i = 0; i < params_array.length; i++) {
@@ -214,11 +214,9 @@ function gen_uuid() {
       .insert([{user_id: user_id}])
       if (error) {
         console.log("Error creating UUID:");
-        console.log(error)
-        // read_data();  
+        console.log(error) 
       } else {
         // Write successfull
-        // console.log(data);
         db_id = data[0].id;
         current_utc_time = data[0].created_at
 
