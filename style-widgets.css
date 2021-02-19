@@ -14,14 +14,13 @@
 
 /* styles for expand card */
 .eventtia-card-expand_image {
-    max-height: 250px;
     flex: 1;
 }
 
 .eventtia-card-expand_img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
 }
 
 .eventtia-card-expand_button {
@@ -73,6 +72,20 @@
 .eventtia-cards-expand_item {
   padding: 1rem;
 }
+
+
+@media (max-width: 620px) {
+  .eventtia-card-expand {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .eventtia-card-expand {
+    max-height: 300px;
+  }
+}
+
 
 .eventtia-card-expand {
   background-color: #ffffff;
