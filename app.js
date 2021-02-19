@@ -23,6 +23,7 @@ let event_utc_time = elements_array[5][1];
 let event_duration_hours = elements_array[6][1];
 let env = null;
 
+// define env
 if (elements_array[elements_array.length - 1][0] === 'env') {
   env = "dev";
 } else {
@@ -208,7 +209,7 @@ const { createClient } = supabase;
 let host = null;
 let key = null;
 if (env === 'prod') {
-  host = 'https://fmsesqjkbadnliholapv.supabase.co/';
+  host = 'https://fmsesqjkbadnliholapv.supabase.co';
   key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMzc1NDgxNCwiZXhwIjoxOTI5MzMwODE0fQ.7Qi89BzXqzlBlAQWbLQ0CKJi70s0zPMjKeFUrdMgJFc';
 } else {
   host = 'https://grjotsrqxlcjdhqqjmai.supabase.co';
