@@ -262,7 +262,9 @@ function update_session(type) {
         .insert([{
           session_id: db_id,
           url: url,
-          action: type
+          action: type,
+          status: status_class_add.split("-")[0],
+          event_date: "" + event_utc_date + " " + event_utc_time
         }], { returning: 'minimal' })
 
         if (error) {
