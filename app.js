@@ -253,8 +253,9 @@ if (localStorage.getItem("eventtia-tag") === null) {
   db_id = localStorage.getItem("eventtia-tag");
 }
 
+let interaction_id_js = 0
 // main analytics function
-function update_session(type) {
+function update_session(type, interaction_id) {
   if (db_id != "none") {
     (async function () {
       const { data, error } = await supabase
@@ -264,7 +265,8 @@ function update_session(type) {
           url: url,
           action: type,
           status: status_class_add.split("-")[0],
-          event_date: "" + event_utc_date + " " + event_utc_time
+          event_date: "" + event_utc_date + " " + event_utc_time,
+          interaction_id: interaction_id
         }], { returning: 'minimal' })
 
         if (error) {
@@ -278,7 +280,7 @@ function update_session(type) {
     
           if (type == 'open') {
             // start updating session every minute
-            interval = setInterval(function(){ update_session("update"); }, 60000);
+            interval = setInterval(function(){ update_session("update", interaction_id_js); }, 60000);
           }   
         } 
     })()
@@ -306,9 +308,10 @@ for (let i = 0; i < btn.length; i++) {
   btn[i].onclick = function () {
     // Show Modal
     modal.style.display = "block";
+    interaction_id_js = Date.now();
 
     // save obj
-    update_session("open");
+    update_session("open", interaction_id_js);
   }
 }
 
@@ -319,7 +322,7 @@ for (let i = 0; i < span.length; i++) {
     modal.style.display = "none";
 
     // save obj
-    update_session("close");
+    update_session("close", interaction_id_js);
   }
 }
 
