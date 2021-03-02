@@ -53,8 +53,20 @@ event_time_finished.setHours(event_time_finished.getHours() + (time_offset + par
 let year = event_utc_js_datetime.getFullYear();
 let month = event_utc_js_datetime.getMonth();
 let day = event_utc_js_datetime.getDate();
+if (day < 10) {
+  day = "0" + day;
+}
+
 let hours = event_utc_js_datetime.getHours();
+if (hours < 10) {
+  hours = "0" + hours;
+}
+
 let minutes = event_utc_js_datetime.getMinutes();
+if (minutes < 10) {
+  minutes = "0" + minutes;
+}
+
 let week_day = event_utc_js_datetime.getDay();
 
 let readable_date = "" + french_week_days[week_day] + " " + day + " " + french_months[month];
