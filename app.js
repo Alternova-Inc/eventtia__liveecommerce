@@ -328,7 +328,7 @@ for (let i = 0; i < btn.length; i++) {
 }
 
 for (let i = 0; i < span.length; i++) {
-  span[i].setAttribute("style", "color: #aaaaaa; float: right; margin: 10px; font-size: 28px; font-weight: bold; cursor: pointer;");
+  span[i].setAttribute("style", "float: right; margin: 10px; font-weight: bold; cursor: pointer;");
   span[i].onclick = function () {
     // Hide modal
     modal.style.display = "none";
@@ -338,6 +338,6 @@ for (let i = 0; i < span.length; i++) {
   }
 }
 
-modal.setAttribute("style", "display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); overflow: hidden");
-modalContent.setAttribute("style", "background-color: #fefefe; margin: auto; padding: 0px; border: 1px solid #888;");
+modal.setAttribute("style", "display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto;  overflow: hidden");
+modalContent.setAttribute("style", "margin: auto; padding: 0px;");
 embed.setAttribute("style", "height: calc(100vh - 55px);");
