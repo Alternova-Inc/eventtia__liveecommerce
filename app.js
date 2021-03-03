@@ -20,7 +20,7 @@ let imageUrl = elements_array[2][1];
 let widgetType = elements_array[3][1].toLowerCase();
 let event_utc_date = elements_array[4][1];
 let event_utc_time = elements_array[5][1];
-let event_duration_hours = elements_array[6][1];
+let event_duration_minutes = elements_array[6][1];
 let env = null;
 
 // define env
@@ -47,7 +47,8 @@ let time_offset = current_time.getTimezoneOffset() / -60;
 event_time_user_adjusted.setHours(event_time_user_adjusted.getHours() + time_offset);
 
 // Find event finished time
-event_time_finished.setHours(event_time_finished.getHours() + (time_offset + parseInt(event_duration_hours)));
+event_time_finished.setHours(event_time_finished.getHours() + time_offset);
+event_time_finished.setMinutes(event_time_finished.getMinutes() + parseInt(event_duration_minutes));
 
 // Create human readable date in french
 let year = event_utc_js_datetime.getFullYear();
@@ -68,7 +69,6 @@ if (minutes < 10) {
 }
 
 let week_day = event_utc_js_datetime.getDay();
-
 let readable_date = "" + french_week_days[week_day] + " " + day + " " + french_months[month];
 readable_date += " " + year +  ", " + hours + ":" + minutes;
 
