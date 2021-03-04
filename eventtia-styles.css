@@ -1,15 +1,15 @@
 /* General Usage */
 .live-status {
-  background: #ED3B4B;
+  background-color: #ED3B4B;
 }
 
 .scheduled-status {
-  background: #2DD2D0;
+  background-color: #2DD2D0;
   color: rgb(54, 54, 54);
 }
 
 .replay-status {
-  background: #8A1778;
+  background-color: #8A1778;
 }
 
 /* styles for expand card */
