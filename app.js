@@ -303,7 +303,7 @@ function updateLayoutFromData(data) {
       // create div card compact
       card.setAttribute('style', 'display: inline;');
       card.innerHTML = 
-        '<button class="eventtia-card-compact_btn eventtia-btn replay-status" eventtia-id="' + event_key + '">' + 
+        '<button class="eventtia-card-button_btn eventtia-btn" eventtia-id="' + event_key + '">' + 
           events_data[event_key].widget_button_text +
         '</button>';
     } else {
