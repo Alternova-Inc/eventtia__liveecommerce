@@ -16,8 +16,10 @@ for (let i = 0; i < params_array.length; i++) {
 
 // define env
 let env = null;
-if (elements_array[elements_array.length - 1][0] === 'env') {
-  env = "dev";
+if (elements_array.length > 0) {
+  if (elements_array[elements_array.length - 1][0] === 'env') {
+    env = "dev";
+  }
 } else {
   env = 'prod';
 }
