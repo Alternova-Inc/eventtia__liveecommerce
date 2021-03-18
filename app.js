@@ -419,7 +419,7 @@ Promise.all(container_promises)
         let eventtia_id = btn[i].getAttribute("eventtia-id");
 
         // Show Modal
-        document.getElementById('embed-' + eventtia_id).src = db_data["events_data"][eventtia_id]["url"]; //only needs to be done the first time.
+        document.getElementById('embed-' + eventtia_id).src = db_data["events_data"][eventtia_id]["url"] + "?email=" +  db_data["events_data"][eventtia_id]["event_access_email"];
         document.getElementById('modal-' + eventtia_id).style.display = "block";
         interaction_id_js = Date.now();
 
